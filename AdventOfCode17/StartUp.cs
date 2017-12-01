@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode17
 {
-    class Program
+    class StartUp
     {
-        static void Main(string[] args)
+        static void Main()
         {
+            new day1();
+            Console.ReadKey();
         }
     }
 }
