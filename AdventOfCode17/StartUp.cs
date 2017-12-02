@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,8 @@ namespace AdventOfCode17
     {
         static void Main()
         {
-            new day1();
+            string input = File.ReadAllText(@"day2input.txt");
+            new day2(input);
             Console.ReadKey();
         }
     }
