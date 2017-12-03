@@ -11,8 +11,7 @@ namespace AdventOfCode17
     {
         static void Main()
         {
-            string input = File.ReadAllText(@"day2input.txt");
-            new day2(input);
+            new day3();
             Console.ReadKey();
         }
     }

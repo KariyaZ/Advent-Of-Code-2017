@@ -1,51 +1,56 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 
 /// <summary>
 /// Summary description for Class1
 /// </summary>
-public class day2
+namespace AdventOfCode17
 {
-	public day2(string input)
-	{
-        string trimmed = input.TrimEnd('\n');
-        int checksum1 = day2_solve1(trimmed);
-        Console.WriteLine(checksum1);
-        int checksum2 = day2_solve2(trimmed);
-        Console.WriteLine(checksum2);
-    }
-
-    public int day2_solve1(string input)
+    public class day2
     {
-        string[] splitLines = input.Split('\n');
-        int checksum = 0;
-        foreach (string line in splitLines)
+        public day2()
         {
-            int[] numbers = Array.ConvertAll(line.Split('\t'), int.Parse);
-            checksum += numbers.Max() - numbers.Min();
+            string input = File.ReadAllText(@"day2input.txt");
+            string trimmed = input.TrimEnd('\n');
+            int checksum1 = day2_solve1(trimmed);
+            Console.WriteLine(checksum1);
+            int checksum2 = day2_solve2(trimmed);
+            Console.WriteLine(checksum2);
         }
-        return checksum;
-    }
 
-    public int day2_solve2(string input)
-    {
-        string[] splitLines = input.Split('\n');
-        int checksum = 0;
-        foreach (string line in splitLines)
+        public int day2_solve1(string input)
         {
-            int[] numbers = Array.ConvertAll(line.Split('\t'), int.Parse);
-            foreach (int x in numbers)
+            string[] splitLines = input.Split('\n');
+            int checksum = 0;
+            foreach (string line in splitLines)
             {
-                foreach (int y in numbers)
+                int[] numbers = Array.ConvertAll(line.Split('\t'), int.Parse);
+                checksum += numbers.Max() - numbers.Min();
+            }
+            return checksum;
+        }
+
+        public int day2_solve2(string input)
+        {
+            string[] splitLines = input.Split('\n');
+            int checksum = 0;
+            foreach (string line in splitLines)
+            {
+                int[] numbers = Array.ConvertAll(line.Split('\t'), int.Parse);
+                foreach (int x in numbers)
                 {
-                    if (x == y) continue;
-                    if (x % y == 0)
+                    foreach (int y in numbers)
                     {
-                        checksum += x / y;
+                        if (x == y) continue;
+                        if (x % y == 0)
+                        {
+                            checksum += x / y;
+                        }
                     }
                 }
             }
+            return checksum;
         }
-        return checksum;
     }
 }

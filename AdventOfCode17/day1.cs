@@ -1,6 +1,7 @@
-﻿namespace AdventOfCode17
+﻿using System;
+
+namespace AdventOfCode17
 {
-    using System;
     public class day1
     {
         public day1()
