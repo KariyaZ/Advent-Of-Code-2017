@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="day4.cs" />
     <Compile Include="day3.cs" />
     <Compile Include="day1.cs" />
     <Compile Include="day2.cs" />
@@ -54,6 +55,9 @@
   <ItemGroup>
     <Content Include="day2input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="day4input.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
