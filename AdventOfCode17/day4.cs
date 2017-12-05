@@ -40,7 +40,6 @@ namespace AdventOfCode17
         {
             string line;
             int goodpasswords = 0;
-            bool goodone = false;
             System.IO.StreamReader file = new System.IO.StreamReader(@"day4input.txt");
             while ((line = file.ReadLine()) != null)
             {
