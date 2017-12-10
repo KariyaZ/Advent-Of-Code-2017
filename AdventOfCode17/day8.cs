@@ -72,7 +72,6 @@ namespace AdventOfCode17
                     return registervalue != comparisonvalue;
                 default:
                     throw new NotImplementedException();
-                    break;
             }
         }
 
