@@ -25,14 +25,13 @@ namespace AdventOfCode17
                 var data = line.Split(' ');
                 for (int i = 2; i < data.Count(); i++)
                 {
-                    var name = data[i];
                     nodelist[index].AddConnection(nodelist.First(n => n.Name == data[i].TrimEnd(',')));
-                    nodelist.First(x => x.Name == data[i].TrimEnd(',')).AddConnection(nodelist[index]);
+                    nodelist.First(n => n.Name == data[i].TrimEnd(',')).AddConnection(nodelist[index]);
                 }
                 index++;
             }
 
-            Console.WriteLine(nodelist.First(x => x.Name == "0").GetGroup().Count.ToString());
+            Console.WriteLine(nodelist.First(node => node.Name == "0").GetGroup().Count.ToString());
 
             int groups = 0;
 
@@ -56,35 +55,35 @@ namespace AdventOfCode17
 
         public Node(string name)
         {
-            Name = name;
+            this.Name = name;
         }
 
         public void AddConnection(Node node)
         {
-            if(!Connections.Contains(node))
+            if(!this.Connections.Contains(node))
             {
-                Connections.Add(node);
+                this.Connections.Add(node);
             }    
         }
 
-        private void GetGroup(List<Node> groupPrograms)
+        private void GetGroup(List<Node> NodesInGroup)
         {
-            groupPrograms.Add(this);
+            NodesInGroup.Add(this);
 
-            foreach (var c in Connections)
+            foreach (var node in this.Connections)
             {
-                if (!groupPrograms.Contains(c))
+                if (!NodesInGroup.Contains(node))
                 {
-                    c.GetGroup(groupPrograms);
+                    node.GetGroup(NodesInGroup);
                 }
             }
         }
 
         public List<Node> GetGroup()
         {
-            var groupPrograms = new List<Node>();
-            GetGroup(groupPrograms);
-            return groupPrograms;
+            var NodesInGroup = new List<Node>();
+            GetGroup(NodesInGroup);
+            return NodesInGroup;
         }
 
     }
