@@ -11,7 +11,7 @@ namespace AdventOfCode17
     {
         static void Main()
         {
-            new day11();
+            new day12();
             Console.ReadKey();
         }
     }
