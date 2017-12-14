@@ -28,10 +28,11 @@ namespace AdventOfCode17
                 caught = false;
                 delay++;
                 
-                for (int i = 0; i <= 90; i++)
+                for (int i = 0; i <= LastScannerIndex; i++)
                 {
                     if (scanners.ContainsKey(i))
                     {
+
                         if ((i+delay) % (2 * scanners[i] - 2) == 0)
                         {
                             //caught
