@@ -48,14 +48,13 @@ namespace AdventOfCode17
         public void day15_solve2()
         {
             int matches = 0;
-            int pairs = 0;
             long genAstart = 618;
             long genBstart = 814;
-            string abin = "";
-            string bbin = "";
+            long abin = 0;
+            long bbin = 0;
 
-            Queue<string> aq = new Queue<string>();
-            Queue<string> bq = new Queue<string>();
+            Queue<long> aq = new Queue<long>();
+            Queue<long> bq = new Queue<long>();
 
 
             while (aq.Count() < 5000000 || bq.Count() < 5000000)
@@ -65,8 +64,7 @@ namespace AdventOfCode17
                     genAstart = Calc(genAstart, 16807);
                     if (genAstart % 4 == 0)
                     {
-                        abin = Convert.ToString(genAstart, 2).PadLeft(17, '0');
-                        abin = abin.Substring(abin.Length - 16);
+                        abin = genAstart & 0xFFFF;
                         aq.Enqueue(abin);
                     }
                 }
@@ -76,8 +74,7 @@ namespace AdventOfCode17
                     genBstart = Calc(genBstart, 48271);
                     if (genBstart % 8 == 0)
                     {
-                        bbin = Convert.ToString(genBstart, 2).PadLeft(17, '0');
-                        bbin = bbin.Substring(bbin.Length - 16);
+                        bbin = genBstart & 0xFFFF;
                         bq.Enqueue(bbin);
                     }
                 }
