@@ -60,13 +60,18 @@ namespace AdventOfCode17
 
         public int distance(int x, int y)
         {
-            //Diagonal steps so changes both X and Y distance
-            int moveXY = Math.Abs(x);
+            if (x >= y)
+            {
+                return Math.Abs(x);
+            } else { 
+                //Diagonal steps so changes both X and Y distance
+                int moveXY = Math.Abs(x);
 
-            //Once diagonal moves "run out" move the rest of the way straight up/down
-            int moveY = (Math.Abs(y) - moveXY) / 2;
+                //Once diagonal moves "run out" move the rest of the way straight up/down
+                int moveY = (Math.Abs(y) - moveXY) / 2;
 
-            return moveXY + moveY;
+                return moveXY + moveY;
+            }
         }
     }
 }
