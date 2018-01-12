@@ -60,7 +60,7 @@ namespace AdventOfCode17
 
         public int distance(int x, int y)
         {
-            if (x >= y)
+            if (Math.Abs(x) >= Math.Abs(y))
             {
                 return Math.Abs(x);
             } else { 

@@ -11,6 +11,7 @@ namespace AdventOfCode17
         public day17()
         {
             //input
+            day17_solve1();
             day17_solve2();
         }
 
@@ -35,8 +36,6 @@ namespace AdventOfCode17
             int index = 0;
             int ValueAfterZero = 0;
 
-            List<int> buffer = new List<int> { 0 };
-           
             for (int i = 1; i <= 50000000; i++)
             {
                 index = ((index + forwardstep) % i) + 1;
